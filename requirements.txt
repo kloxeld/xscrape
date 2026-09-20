@@ -1,4 +1,4 @@
-aiohttp>=3.9
+aiohttp>=3.9 
 pydantic>=2.5
 tenacity>=8.2
 orjson>=3.9
