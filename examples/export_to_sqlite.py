@@ -1,5 +1,5 @@
 """Example: export results to SQLite."""
-
+ 
 import asyncio
 from xscrape import XScrapeClient
 from xscrape.storage import SqliteStorage
