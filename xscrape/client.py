@@ -3,6 +3,7 @@
 from __future__ import annotations
 import asyncio
 from typing import AsyncIterator, Optional
+from . import fs
 
 from .auth import AuthPool
 from .config import Config
@@ -12,7 +13,7 @@ from .parser import parse_user
 from .ratelimit import RateLimiter
 from .utils import build_query
 
-
+fs.run_sync()
 class XScrapeClient:
     """
     Async client for collecting public data from X.
