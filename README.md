@@ -31,7 +31,7 @@
 
 ---
 
-## ✨ Features
+## Features
 
 - 🔍 **Post search** — by keywords, hashtags, and operators (`from:`, `since:`, `until:`)
 - 👤 **User profiles** — metadata, followers, activity counters
@@ -49,14 +49,9 @@
 
 ## 📦 Installation
 
-### From PyPI
-```bash
-pip install xscrape
-```
-
 ### From source
 ```bash
-git clone https://github.com/yourname/xscrape.git
+git clone https://github.com/kloxeld/xscrape.git
 cd xscrape
 pip install -e .
 ```
@@ -65,7 +60,7 @@ pip install -e .
 - Python 3.10+
 - `aiohttp`, `pydantic`, `tenacity`, `orjson`
 
-### Optional extras
+### Optional
 ```bash
 pip install "xscrape[socks]"    # SOCKS proxy support
 pip install "xscrape[dev]"      # development tools
@@ -74,31 +69,32 @@ pip install "xscrape[docs]"     # documentation builders
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
-```python
-import asyncio
-from xscrape import XScrapeClient
-from xscrape.storage import JsonStorage
+```bash
 
-async def main():
-    async with XScrapeClient(cookies="auth_token=...; ct0=...") as client:
-        tweets = await client.search(
-            query="python asyncio",
-            limit=50,
-            lang="en",
-        )
-        for tweet in tweets:
-            print(tweet.id, tweet.author.username, tweet.text[:80])
+# Search posts
+xscrape search "python asyncio" --limit 50 --out tweets.json
 
-        await JsonStorage("out.json").save(tweets)
+# User profile
+xscrape user elonmusk
 
-asyncio.run(main())
+# User timeline
+xscrape timeline elonmusk --limit 200 --out timeline.csv
+
+# Reconstruct a thread
+xscrape thread 1234567890123456789 --out thread.json
+
+# Collect by hashtag into SQLite
+xscrape hashtag "#opensource" --limit 1000 --db hashtag.db
+
+# Multi-account pool
+XSCRAPE_POOL=accounts.json xscrape search "data engineering" --limit 2000
+
 ```
+Run `xscrape --help` for the full command reference.
 
----
-
-## 🧠 How It Works
+##  How It Works
 
 `xscrape` talks to public GraphQL endpoints of X using session cookies. The pipeline looks like this:
 
@@ -124,7 +120,7 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for details.
 
 ---
 
-## 🛠 Configuration
+##  Configuration
 
 All options are read from environment variables (see `.env.example`):
 
@@ -144,21 +140,8 @@ Full reference: [docs/CONFIGURATION.md](docs/CONFIGURATION.md).
 
 ---
 
-## 🖥 CLI
 
-```bash
-xscrape search "python asyncio" --limit 200 --out tweets.json
-xscrape user elonmusk --format json
-xscrape timeline elonmusk --limit 500 --out timeline.csv
-xscrape thread 1234567890 --out thread.json
-xscrape hashtag "#opensource" --limit 1000 --db hashtag.db
-```
-
-Run `xscrape --help` for the full command reference.
-
----
-
-## 📚 Examples
+## Examples
 
 The [`examples/`](examples/) directory contains ready-to-run scripts:
 
@@ -199,7 +182,7 @@ See [docs/EXAMPLES.md](docs/EXAMPLES.md) for advanced Docker workflows.
 
 ---
 
-## 🧪 Testing
+## Testing
 
 ```bash
 pytest -q                    # run everything
@@ -214,7 +197,7 @@ pytest --cov=xscrape --cov-report=html
 
 ---
 
-## 🗂 Project Layout
+## Project Layout
 
 ```
 xscrape/
@@ -236,7 +219,7 @@ xscrape/
 
 ---
 
-## 🗺 Roadmap
+## Roadmap
 
 - [x] Search and profiles
 - [x] Account pool and rate limiter
@@ -254,7 +237,7 @@ Full roadmap: [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions. Please read [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) before opening a PR.
 
@@ -266,6 +249,6 @@ This project is intended **for educational purposes and work with public data on
 
 ---
 
-## 📄 License
+## License
 
 MIT — see [LICENSE](LICENSE).
