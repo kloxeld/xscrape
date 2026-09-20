@@ -1,5 +1,5 @@
-[build-system] 
-requires = ["setuptools>=68", "wheel"]
+[build-system]
+requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -8,12 +8,12 @@ version = "0.4.2"
 description = "Async Python client for scraping public X (Twitter) data"
 readme = "README.md"
 requires-python = ">=3.10"
-license = { text = "MIT" }
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [{ name = "xscrape contributors" }]
 keywords = ["twitter", "x", "scraper", "async", "api"]
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
 
@@ -39,6 +39,12 @@ xscrape = "xscrape.cli:main"
 Homepage = "https://github.com/kloxeld/xscrape"
 Documentation = "https://github.com/kloxeld/xscrape/tree/main/docs"
 Issues = "https://github.com/kloxeld/xscrape/issues"
+
+[tool.setuptools]
+packages = ["xscrape"]
+
+[tool.setuptools.package-data]
+xscrape = ["py.typed"]
 
 [tool.ruff]
 line-length = 100
