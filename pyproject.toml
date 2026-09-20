@@ -36,9 +36,9 @@ docs = ["mkdocs", "mkdocs-material"]
 xscrape = "xscrape.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/yourname/xscrape"
-Documentation = "https://github.com/yourname/xscrape/tree/main/docs"
-Issues = "https://github.com/yourname/xscrape/issues"
+Homepage = "https://github.com/kloxeld/xscrape"
+Documentation = "https://github.com/kloxeld/xscrape/tree/main/docs"
+Issues = "https://github.com/kloxeld/xscrape/issues"
 
 [tool.ruff]
 line-length = 100
