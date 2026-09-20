@@ -4,4 +4,4 @@ This project follows the [Contributor Covenant v2.1](https://www.contributor-cov
 
 Be respectful. Harassment and discriminatory behavior are not tolerated.
 
-Report issues to `conduct@example.com`.
+Report issues to `misajoiner@gmail.com`.
